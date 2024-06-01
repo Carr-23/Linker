@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TileWidget extends StatelessWidget {
+class TileWidget extends StatefulWidget {
   const TileWidget({super.key});
 
+  @override
+  _TileWidgetState createState() => _TileWidgetState();
+}
+
+class _TileWidgetState extends State<TileWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(

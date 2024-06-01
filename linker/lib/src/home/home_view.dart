@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../search/search_bar.dart';
 import '../tile_system/grid_view.dart';
-import '../tile_system/tile_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -10,11 +9,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          SearchBarWidget(),
-          TileWidget(),
+          const SearchBarWidget(),
+          const Expanded(child: GridViewWidget()),
         ],
       ),
     );
