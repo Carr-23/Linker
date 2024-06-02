@@ -8,7 +8,7 @@ class SearchBarWidget extends StatelessWidget {
     return const Align(
         alignment: Alignment.topCenter,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.only(top: 100),
           child: SearchBar(
             leading: Icon(Icons.search),
           ),

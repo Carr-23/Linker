@@ -9,11 +9,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
-      body: Column(
+      body: const Column(
         children: [
-          const SearchBarWidget(),
-          const Expanded(child: GridViewWidget()),
+          SearchBarWidget(),
+          Expanded(child: GridViewWidget()),
         ],
       ),
     );

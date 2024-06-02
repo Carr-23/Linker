@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
-class TileWidget extends StatefulWidget {
-  const TileWidget({super.key});
+class BookmarkWidget extends StatefulWidget {
+  const BookmarkWidget({super.key});
 
   @override
-  _TileWidgetState createState() => _TileWidgetState();
+  _BookmarkWidgetState createState() => _BookmarkWidgetState();
 }
 
-class _TileWidgetState extends State<TileWidget> {
+class _BookmarkWidgetState extends State<BookmarkWidget> {
+  String title = "";
+  String thumbnailURL = "";
+  String url = "";
+  String domain = "";
+  List<String> tags = [];
+
+  String? creator;
+  String? publisher;
+  
   @override
   Widget build(BuildContext context) {
     return Card(

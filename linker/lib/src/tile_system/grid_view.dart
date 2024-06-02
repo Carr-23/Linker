@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../tile_system/tile_card.dart';
+import 'bookmark.dart';
+import 'add_bookmark.dart';
 
 class GridViewWidget extends StatefulWidget {
   const GridViewWidget({super.key});
@@ -11,12 +12,24 @@ class GridViewWidget extends StatefulWidget {
 class _GridViewWidgetState extends State<GridViewWidget> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    
+    double screenWidth = MediaQuery.of(context).size.width;
+    int crossAxisCount = (screenWidth / 550).floor(); 
+
+    return Padding(
+      padding: const EdgeInsets.only(left: 300.0, right: 300.0, top: 150.0),
       child: GridView.builder(
-        itemCount: 3,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        itemCount: 10,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          mainAxisSpacing: 30.0,
+          crossAxisSpacing: 30.0,
+          ),
         itemBuilder: (context, index){
-          return const TileWidget();
+          if (index == 0) {
+            return const AddBookmarkWidget();
+          }
+          return const BookmarkWidget();
         },
       )
     );
