@@ -7,14 +7,14 @@ class AddBookmarkWidget extends StatelessWidget {
   void openNewBookmarkDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => BookmarkSettingsWidget(isNew: true, true)
+      builder: (context) => BookmarkSettingsWidget(isNew: true)
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: InkWell(
+      child: InkWell(
       onTap: () {
         openNewBookmarkDialog(context);
       },

@@ -29,7 +29,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
           if (index == 0) {
             return const AddBookmarkWidget();
           }
-          return const BookmarkWidget();
+          return const BookmarkWidget(isPrivate: false,);
         },
       )
     );

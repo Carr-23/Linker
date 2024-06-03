@@ -2,8 +2,25 @@ import 'package:flutter/material.dart';
 
 class BookmarkSettingsWidget extends StatelessWidget {
   final bool isNew;
+  final String title;
+  final String thumbnailURL;
+  final String url;
+  final String domain;
+  final List<String> tags;
+  final String? creator;
+  final String? publisher;
 
-  BookmarkSettingsWidget(bool bool, {super.key, required this.isNew});
+  BookmarkSettingsWidget({
+    super.key,
+    required this.isNew,
+    this.title = "",
+    this.thumbnailURL = "",
+    this.url = "",
+    this.domain = "",
+    this.tags = const [],
+    this.creator,
+    this.publisher,
+  });
 
   // Initialize the TextEditingControllers
   final TextEditingController titleController = TextEditingController();
@@ -17,38 +34,66 @@ class BookmarkSettingsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: isNew == true ? const Text("Add Bookmark") : const Text("Edit Bookmark"),
+      title: isNew ? const Text("Add Bookmark") : const Text("Edit Bookmark"),
       content: SingleChildScrollView(
         child: ListBody(
           children: [
             TextField(
               controller: titleController,
-              decoration: const InputDecoration(hintText: "Title"),
+              decoration: InputDecoration(
+                hintText: "Title",
+                labelText: isNew ? null : title,
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: thumbnailURLController,
-              decoration: const InputDecoration(hintText: "Thumbnail URL"),
+              decoration: InputDecoration(
+                hintText: "Thumbnail URL",
+                labelText: isNew ? null : thumbnailURL,
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: urlController,
-              decoration: const InputDecoration(hintText: "URL"),
+              decoration: InputDecoration(
+                hintText: "URL",
+                labelText: isNew ? null : url,
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: domainController,
-              decoration: const InputDecoration(hintText: "Domain"),
+              decoration: InputDecoration(
+                hintText: "Domain",
+                labelText: isNew ? null : domain,
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: tagsController,
-              decoration: const InputDecoration(hintText: "Tags"),
+              decoration: InputDecoration(
+                hintText: "Tags",
+                labelText: isNew ? null : tags.join(", "),
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: creatorController,
-              decoration: const InputDecoration(hintText: "Creator"),
+              decoration: InputDecoration(
+                hintText: "Creator",
+                labelText: isNew ? null : creator,
+              ),
             ),
+            const SizedBox(height: 20),
             TextField(
               controller: publisherController,
-              decoration: const InputDecoration(hintText: "Publisher"),
+              decoration: InputDecoration(
+                hintText: "Publisher",
+                labelText: isNew ? null : publisher,
+              ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -67,7 +112,7 @@ class BookmarkSettingsWidget extends StatelessWidget {
           },
         ),
         TextButton(
-          child: isNew == true ? const Text("Add") : const Text("Save"),
+          child: isNew ? const Text("Add") : const Text("Save"),
           onPressed: () {
             Navigator.of(context).pop();
             titleController.clear();
